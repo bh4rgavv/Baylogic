@@ -1,0 +1,13 @@
+train: ../train/images
+val: ../valid/images
+test: ../test/images
+
+nc: 2
+names: ['Number-Plate', 'Vehicle-Detection']
+
+roboflow:
+  workspace: bhargavs-workspace-gq7yb
+  project: vehicle-detection-b9ksi
+  version: dataset
+  license: CC BY 4.0
+  url: https://universe.roboflow.com/bhargavs-workspace-gq7yb/vehicle-detection-b9ksi/dataset/dataset
