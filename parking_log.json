@@ -1,78 +1,15 @@
 [
     {
         "bay": 1,
-        "plate": "L0B70Q0",
-        "plate_color": "White",
-        "vehicle_type": "Regular",
-        "direction": "leaving",
-        "entry_time": "01:02:00",
-        "exit_time": "01:02:43",
-        "duration_seconds": 43,
-        "duration_human": "0h 0m 43s",
-        "technician_seconds": 13,
-        "technician_duration": "0h 0m 13s"
-    },
-    {
-        "bay": 1,
-        "plate": "KL001510",
-        "plate_color": "White",
-        "vehicle_type": "Regular",
-        "direction": "leaving",
-        "entry_time": "01:02:00",
-        "exit_time": "01:02:43",
-        "duration_seconds": 43,
-        "duration_human": "0h 0m 43s",
-        "technician_seconds": 13,
-        "technician_duration": "0h 0m 13s"
-    },
-    {
-        "bay": 1,
-        "direction": "leaving",
-        "entry_time": "01:02:00",
-        "exit_time": "01:02:43",
-        "duration_seconds": 43,
-        "duration_human": "0h 0m 43s",
-        "technician_seconds": 13,
-        "technician_duration": "0h 0m 13s"
-    },
-    {
-        "bay": 1,
-        "direction": "leaving",
-        "entry_time": "01:02:00",
-        "exit_time": "01:02:43",
-        "duration_seconds": 43,
-        "duration_human": "0h 0m 43s",
-        "technician_seconds": 13,
-        "technician_duration": "0h 0m 13s"
-    },
-    {
-        "bay": 1,
-        "direction": "leaving",
-        "entry_time": "01:02:00",
-        "exit_time": "01:02:43",
-        "duration_seconds": 43,
-        "duration_human": "0h 0m 43s",
-        "technician_seconds": 13,
-        "technician_duration": "0h 0m 13s"
-    },
-    {
-        "bay": 1,
-        "direction": "leaving",
-        "entry_time": "01:02:00",
-        "exit_time": "01:02:43",
-        "duration_seconds": 43,
-        "duration_human": "0h 0m 43s",
-        "technician_seconds": 13,
-        "technician_duration": "0h 0m 13s"
-    },
-    {
-        "bay": 1,
-        "direction": "leaving",
-        "entry_time": "01:02:00",
-        "exit_time": "01:02:43",
-        "duration_seconds": 43,
-        "duration_human": "0h 0m 43s",
-        "technician_seconds": 13,
-        "technician_duration": "0h 0m 13s"
+        "plate": "",             #as it is sensitive data wont be including the details as well
+        "plate_color": "",
+        "vehicle_type": "",
+        "direction": "",
+        "entry_time": "",
+        "exit_time": "",
+        "duration_seconds": ,
+        "duration_human": "",
+        "technician_seconds": ,
+        "technician_duration": ""
     }
 ]
