@@ -3,7 +3,7 @@
 import cv2
 from collections import Counter
 from ultralytics import YOLO
-from config import ROI_X1, ROI_Y1, ROI_X2, ROI_Y2, ROI2_X1, ROI2_Y1, ROI2_X2, ROI2_Y2, PERSON_COCO_ID, CATTLE_COCO_ID
+from config import ROI_X1, ROI_Y1, ROI_X2, ROI_Y2, ROI2_X1, ROI2_Y1, ROI2_X2, ROI2_Y2
 from plate_utils import read_plate_lpr, get_plate_color
 from detection_utils import is_person_shaped, boxes_overlap, in_bay
 from logger import load_log, save_log
@@ -11,7 +11,7 @@ from db import create_table, insert_record
 
 create_table()
 
-custom_model = YOLO("runs/detect/train-4/weights/best.pt")
+custom_model = YOLO("runs/detect/train-4/weights/best.pt").to("cuda")
 normal_model = YOLO("runs/detect/train-4/weights/best_er.pt")
 
 cap = cv2.VideoCapture("video.mp4")
@@ -183,11 +183,11 @@ while frame_count < 5400:
         if bay1_entry_time is not None:
             exit_time      = get_video_time(cap)
             duration_secs  = int((frame_count - bay1_entry_frame) / fps)
-            duration_human = f"{duration_secs // 3600}h {(duration_secs % 3600) // 60}m {duration_secs % 60}s"
             tech_secs      = bay1_tech_total_seconds
+            time_the_vehicle_was_operated_on= duration_secs-tech_secs
             tech_human     = f"{tech_secs // 3600}h {(tech_secs % 3600) // 60}m {tech_secs % 60}s"
             direction      = "leaving"
-            print(f"[BAY 1 EXIT] {exit_time} | Duration: {duration_human}")
+            print(f"[BAY 1 EXIT] {exit_time}")
             records = load_log()
             record  = {
                 "bay":                 1,
@@ -195,7 +195,7 @@ while frame_count < 5400:
                 "entry_time":          bay1_entry_time,
                 "exit_time":           exit_time,
                 "duration_seconds":    duration_secs,
-                "duration_human":      duration_human,
+                "time_the_vehicle_was_operated_on": time_the_vehicle_was_operated_on,
                 "technician_seconds":  tech_secs,
                 "technician_duration": tech_human
             }
@@ -227,11 +227,11 @@ while frame_count < 5400:
         if bay2_entry_time is not None:
             exit_time      = get_video_time(cap)
             duration_secs  = int((frame_count - bay2_entry_frame) / fps)
-            duration_human = f"{duration_secs // 3600}h {(duration_secs % 3600) // 60}m {duration_secs % 60}s"
             tech_secs      = bay2_tech_total_seconds
+            time_the_vehicle_was_operated_on= bay2_tech_total_seconds-duration_secs
             tech_human     = f"{tech_secs // 3600}h {(tech_secs % 3600) // 60}m {tech_secs % 60}s"
             direction      = "leaving"
-            print(f"[BAY 2 EXIT] {exit_time} | Duration: {duration_human}")
+            print(f"[BAY 2 EXIT] {exit_time}")
             records = load_log()
             record  = {
                 "bay":                 2,
@@ -239,8 +239,8 @@ while frame_count < 5400:
                 "entry_time":          bay2_entry_time,
                 "exit_time":           exit_time,
                 "duration_seconds":    duration_secs,
-                "duration_human":      duration_human,
                 "technician_seconds":  tech_secs,
+                "time_the_vehicle_was_operated_on": time_the_vehicle_was_operated_on,
                 "technician_duration": tech_human
             }
             if duration_secs >= 5:
