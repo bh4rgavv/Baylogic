@@ -8,8 +8,8 @@
         "entry_time": "",
         "exit_time": "",
         "duration_seconds": ,
-        "time the vehicle was operated on": "",
         "technician_seconds": ,
+        "time the vehicle was operated on": "",
         "technician_duration": ""
     }
 ]
