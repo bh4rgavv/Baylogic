@@ -15,8 +15,8 @@ custom_model = YOLO("runs/detect/train-4/weights/best.pt").to("cuda")
 normal_model = YOLO("runs/detect/train-4/weights/best_er.pt")
 
 cap = cv2.VideoCapture("video.mp4")
-total_seconds = 1*3600 + 2*60 + 0
-start_frame   = total_seconds * 9
+total_seconds = 1*3600 + 2*60 + 0  #fast forwarded to the particular frame to test checkpoints. you can just put this as 0 to start the video from the very beginning
+start_frame   = total_seconds * 9  #this feed is locked at 9 frames. depending on the frame of your video, change it.
 cap.set(cv2.CAP_PROP_POS_FRAMES, start_frame)
 print("Video opened:", cap.isOpened())
 print("Total frames:", int(cap.get(cv2.CAP_PROP_FRAME_COUNT)))
