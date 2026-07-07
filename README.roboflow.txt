@@ -17,7 +17,6 @@ visit https://github.com/roboflow/notebooks
 
 To find over 100k other datasets and pre-trained models, visit https://universe.roboflow.com
 
-The dataset includes 43 images.
-Vehicle-Detection are annotated in YOLOv12 format.
+Vehicle-Detection was annotated in YOLOv8 format.
 
-No pre-processing or augmentation was applied.
+
