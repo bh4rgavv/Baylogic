@@ -20,7 +20,7 @@ def create_table():
             entry_time          VARCHAR(20),
             exit_time           VARCHAR(20),
             duration_seconds    INT,
-            time the vehicle was operated on      VARCHAR(30),
+            time_the_vehicle_was_operated_on      VARCHAR(30),
             technician_seconds  INT,
             technician_duration VARCHAR(30)
         )
@@ -35,7 +35,7 @@ def insert_record(record):
     cur.execute("""
         INSERT INTO parking_log (
             bay, direction, entry_time, exit_time,
-            duration_seconds, duration_human,
+            duration_seconds, time_the_vehicle_was_operated_on,
             technician_seconds, technician_duration
         ) VALUES (%s, %s, %s, %s, %s, %s, %s, %s)
     """, (
@@ -44,7 +44,7 @@ def insert_record(record):
         record["entry_time"],
         record["exit_time"],
         record["duration_seconds"],
-        record["duration_human"],
+        record["time_the_vehicle_was_operated_on"],
         record["technician_seconds"],
         record["technician_duration"]
     ))
