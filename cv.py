@@ -1,3 +1,5 @@
+#as this is a sample of the project I made during the internship i cannot add the pt files as i trained the models on the dataset that the company provided
+#so please use your own pt files and make the changes as needed to the classes detections
 import cv2
 from collections import Counter
 from ultralytics import YOLO
@@ -9,7 +11,7 @@ from db import create_table, insert_record
 
 create_table()
 
-custom_model = YOLO("runs/detect/train-4/weights/best.pt").to("cuda")
+custom_model = YOLO("runs/detect/train-4/weights/best.pt")
 normal_model = YOLO("runs/detect/train-4/weights/best_er.pt")
 
 cap = cv2.VideoCapture("video.mp4")
@@ -83,12 +85,12 @@ while frame_count < 5400:
         cls  = int(box.cls[0])
         conf = float(box.conf[0])
         x1, y1, x2, y2 = map(int, box.xyxy[0])
-        if cls == PERSON_COCO_ID:
+        if cls == 1:
             if is_person_shaped(x1, x2, y1, y2) and conf > 0.4:
                 label, color = "Person", (0, 165, 255)
                 cv2.rectangle(frame, (x1, y1), (x2, y2), color, 2)
                 cv2.putText(frame, f"{label} {conf*100:.1f}%", (x1, y1 - 10), cv2.FONT_HERSHEY_SIMPLEX, 0.6, color, 2)
-        elif cls == CATTLE_COCO_ID:
+        elif cls == 2:
             label, color = "Technician", (255, 0, 255)
             cv2.rectangle(frame, (x1, y1), (x2, y2), color, 2)
             cv2.putText(frame, f"{label} {conf*100:.1f}%", (x1, y1 - 10), cv2.FONT_HERSHEY_SIMPLEX, 0.6, color, 2)
