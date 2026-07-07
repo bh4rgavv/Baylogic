@@ -20,7 +20,7 @@ def create_table():
             entry_time          VARCHAR(20),
             exit_time           VARCHAR(20),
             duration_seconds    INT,
-            duration_human      VARCHAR(30),
+            time the vehicle was operated on      VARCHAR(30),
             technician_seconds  INT,
             technician_duration VARCHAR(30)
         )
