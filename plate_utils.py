@@ -1,3 +1,4 @@
+#again the lprnet file wont be included as it is the company's property use your own pt files
 import cv2
 import torch
 from torchvision import transforms
@@ -45,8 +46,7 @@ def clean2_plate(plate):
 
 
 lpr_model = build_lprnet(lpr_max_len=11, phase=False, class_num=37, dropout_rate=0.5)
-lpr_model.load_state_dict(torch.load(
-    r"runs\detect\train-4\weights\best_lprnet.pth",
+lpr_model.load_state_dict(torch.load(#your file,
     map_location=device
 ))
 lpr_model = lpr_model.to(device)
