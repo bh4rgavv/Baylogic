@@ -31,7 +31,7 @@ def log_exit(bay, plate, plate_color, entry_time, exit_time, technician_seconds)
         "exit_time":           exit_time.strftime("%Y-%m-%d %H:%M:%S"),
         "duration_seconds":    total_s,
         "technician_seconds":  technician_seconds,
-        "time the vehicle was operated on" : f"{total_s-technician_seconds}"
+        "time the vehicle was operated on" : f"{total_s-technician_seconds}",
         "technician_duration": f"{technician_seconds // 3600}h {(technician_seconds % 3600) // 60}m {technician_seconds % 60}s"
     }
     records.append(record)
