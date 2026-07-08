@@ -45,8 +45,7 @@ config.py             ROI configuration
 detection_utils.py    Helper functions for detection
 plate_utils.py        OCR and plate color detection
 logger.py             JSON logging
-db.py                 MySQL
- database functions
+db.py                 MySQL database functions
 requirements.txt
 ```
 
