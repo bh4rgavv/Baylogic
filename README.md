@@ -60,8 +60,8 @@ The program displays the live video feed with:
 * Technician detection
 * Number plate recognition
 * Bay occupancy status
-* Vehicle timer
-* Technician timer
+* Vehicle timer (present in bay)
+* Technician timer (working on the vehicle)
 
 Completed service records are automatically stored in the database.
 
