@@ -21,7 +21,7 @@ This project monitors vehicle service bays using YOLOv8 and OpenCV. It detects v
 * OpenCV
 * Ultralytics YOLOv8
 * EasyOCR
-* SQLite
+* SQLite/MySQL
 
 ## Running the Project
 
